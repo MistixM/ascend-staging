@@ -1,0 +1,52 @@
+<div class="sidebar">
+    <a href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" class="logo"></a>
+    <div class="burger" id="burger">&#9776;</div>
+    
+    <div class="sidebar-wrapper">
+        <div class="sidebar-buttons main-links">
+            <a class="admin-button  {% if active_page == 'admin' %}active{% endif %}" href="/admin">
+                <img src="{{ url_for('static', filename='images/admin-ico.svg') }}">
+                <span>Admin panel</span>
+            </a>
+            <a class="team-button {% if active_page == 'team' %}active{% endif %}" href="/team">
+                <img src="{{ url_for('static', filename='images/team-ico.svg') }}">
+                <span>Team</span>
+            </a>
+            <a class="invoice-button {% if active_page == 'invoices' %}active{% endif %}" href="/invoices">
+                <img src="{{ url_for('static', filename='images/invoices-ico.svg') }}">
+                <span>Invoices</span>
+            </a>
+            <a class="todo-button {% if active_page == 'todo' %}active{% endif %}" href="/todo">
+                <img src="{{ url_for('static', filename='images/todo-ico.svg') }}">
+                <span>ToDo</span>
+            </a>
+            <a class="calendar-button {% if active_page == 'calendar' %}active{% endif %}" href="/calendar">
+                <img src="{{ url_for('static', filename='images/calendar-ico.svg') }}">
+                <span>Calendar</span>
+            </a>
+        </div>
+    
+        <div class="sidebar-buttons bottom-links">
+            <a class="profile-button {% if active_page == 'profile' %}active{% endif %}" id="profile-btn" data-name="Welcome, Chris!" href="/profile">
+                <img src="{{ url_for('static', filename='images/profile-ico.svg') }}">
+                <span>Profile</span>
+            </a>
+            <a class="logout-button" style="cursor: pointer;">
+                <img src="{{ url_for('static', filename='images/logout-ico.svg') }}">
+                <span>Log out</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="popups">
+    <div class="overlay" id="profile-logout">
+        <div class="profile-logout">
+            <div class="logout-popup-heading" id="role-popup-heading">
+                <span class="logout-form-title">Log out?</span>
+                <p class="logout-form-desc">You will be logged out from the dashboard</p>
+            </div>
+
+            <a id="logout-submit" href="/logout">Log out</a>
+        </div> 
+    </div>
+</div>

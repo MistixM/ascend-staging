@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/todo.css') }}">
+{% endblock %}
+
+{% block title %}ToDo{% endblock %}
+
+{% block body %}
+<div class="panel-container">
+    {% include 'sidebar.html' %}
+    <div class="panel-todo">
+        <div class="panel-todo-first">
+            <div class="panel-first-heading">
+                <h3>ToDo</h3>
+                <p>Manage your todos here.</p>
+            </div>
+            <button id="todo-create">Create todo</button>
+        </div>
+        <div class="panel-tab-scrollable" id="invoices-tab">
+            <ul class="user_cards">
+                <li class="user_item" id="invoice-item">
+                    <div class="user_item_single">
+                        <div class="img-bg">
+                            <img src="{{ url_for('static', filename='images/todo.svg') }}" width="48">
+                        </div>
+                        <h3>Bad frame size</h3>
+                        <span class="invoice-status">Status: Doing</span>
+                    </div>
+                    <div class="status-btns">
+                        <button class="details" style="width: 100%;" id="todo-view-details">View details</button>
+                        <button class="decline" style="background-color: var(--button-success-color);width: 100%;">Mark as done</button>
+                    </div>
+                </li>                 <li class="user_item" id="invoice-item">
+                    <div class="user_item_single">
+                        <div class="img-bg">
+                            <img src="{{ url_for('static', filename='images/todo.svg') }}" width="48">
+                        </div>
+                        <h3>Bad frame size</h3>
+                        <span class="invoice-status">Status: Doing</span>
+                    </div>
+                    <div class="status-btns">
+                        <button class="details" style="width: 100%;" id="todo-view-details">View details</button>
+                        <button class="decline" style="background-color: var(--button-success-color);width: 100%;">Mark as done</button>
+                    </div>
+                </li>                 <li class="user_item" id="invoice-item">
+                    <div class="user_item_single">
+                        <div class="img-bg">
+                            <img src="{{ url_for('static', filename='images/todo.svg') }}" width="48">
+                        </div>
+                        <h3>Bad frame size</h3>
+                        <span class="invoice-status">Status: Doing</span>
+                    </div>
+                    <div class="status-btns">
+                        <button class="details" style="width: 100%;" id="todo-view-details">View details</button>
+                        <button class="decline" style="background-color: var(--button-success-color);width: 100%;">Mark as done</button>
+                    </div>
+                </li>                                    
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="popups">
+    <div class="overlay" id="todo-edit-popup">
+        <div class="todo-details-popup">
+            <div class="todo-popup-heading">
+                <span class="todo-form-title">Todo details</span>
+                <p class="todo-form-desc">View or edit your todo title, description and links. </p>
+            </div>
+            <form action="POST" class="todo-details-form">
+                <div class="todo-inputs">
+                    <div class="title-block">
+                        <span>Title</span>
+                        <input type="text" value="Bad frame size" placeholder="Enter title">
+                    </div>
+                    <div class="description-block">
+                        <span>Description</span>
+                        <input type="text" value="Need to change export settings, since current video has weird bugs with frame." placeholder="Enter description">
+                    </div>
+                    <div class="links-block">
+                        <span>Links</span>
+                        <input type="text" value="https://youtube.com" placeholder="Enter links">
+                    </div>
+                </div>
+
+                <div class="todo-buttons">
+                    <button type="button" class="user-add-submit" id="todo-close">Close</button>
+                    <button type="submit" class="user-add-submit">Submit</button>
+                </div>
+            </form>
+        </div>            
+    </div>
+    <div class="overlay" id="todo-create-popup">
+        <div class="todo-details-popup">
+            <div class="todo-popup-heading">
+                <span class="todo-form-title">Create todo</span>
+                <p class="todo-form-desc">Insert title, description and links if necessary.</p>
+            </div>
+            <form action="POST" class="todo-details-form">
+                <div class="todo-inputs">
+                    <div class="title-block">
+                        <span>Title</span>
+                        <input type="text" placeholder="Enter title">
+                    </div>
+                    <div class="description-block">
+                        <span>Description</span>
+                        <input type="text" placeholder="Enter description">
+                    </div>
+                    <div class="links-block">
+                        <span>Links (optional)</span>
+                        <p>Use semicolon as separator</p>
+                        <input type="text" placeholder="Insert links">
+                    </div>
+                </div>
+
+                <button type="submit" class="user-add-submit">Submit</button>
+            </form>
+        </div>            
+    </div> 
+</div>
+{% endblock %}

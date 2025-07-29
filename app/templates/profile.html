@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<div class="panel-container">
+    {% include 'sidebar.html' %}
+    <div class="panel-profile">
+        <div class="panel-first-heading">
+            <h3>Profile</h3>
+            <p>View and easily customize your profile here.</p>
+        </div>
+        <div class="panel-second">
+            <div class="profile-tab">
+                <div class="profile-inputs">
+                    <form action="POST" class="profile-form">
+                        <div class="name-block">
+                            <span>Name</span>
+                            <input type="text" value="Chris" placeholder="Enter name">
+                        </div>
+                        <div class="desc-block">
+                            <span>Bio</span>
+                            <textarea placeholder="Enter bio" style="resize:vertical;max-height:160px;min-height:50px;border:0;">Content Strategist with 3+ years in viral content and YouTube growth. Leads Ascend Media, scaling 50+ creator channels & brands to six figures and driving 1B+ views.</textarea>
+                        </div>
+                        <div class="email-block">
+                            <span>Email</span>
+                            <input type="email" value="chris@email.com" placeholder="Enter email">
+                        </div>       
+                    </form>
+                </div>
+                <div class="profile-other">
+                    <span class="photo-title">Profile photo</span>
+                    <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}" width="140">
+                    <div class="photo-buttons">
+                        <button id="upload-photo">Upload photo</button>
+                        <button id="delete-photo">Delete</button>
+                    </div>
+                    <div class="profile-other-date">
+                        <span><b>Joined:</b> 12.07.2018</span>
+                        <span><b>Role:</b> Admin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="insights-tab">
+                <span class="insights-title">Your insights</span>
+                <div class="insigths-list">
+                    <div class="insight-item">
+                        <span class="item-title">Total invoices</span>
+                        <span class="item-amount">10</span>
+                    </div>                    
+                    <div class="insight-item">
+                        <span class="item-title">Total todos</span>
+                        <span class="item-amount">3</span>
+                    </div>                    
+                    <div class="insight-item">
+                        <span class="item-title">Total revenue</span>
+                        <span class="item-amount">$5000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,153 @@
+.panel-calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+
+    height: 630px;
+    min-width: 630px;
+    width: 1195px;
+    background-color: var(--third-bg-color);
+    padding: 70px 50px;
+    border-radius: 20px;
+}
+
+.panel-first-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel-first-heading h3 {
+    font-family: 'K2D';
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-color-primary);
+}
+
+.panel-first-heading p {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 300;
+
+    color: var(--text-color-primary);
+}
+
+
+#calendar {
+    height: 550px;
+}
+
+#calendar h2,
+#calendar button {
+    font-family: 'K2D';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-color-primary);
+}
+
+#calendar a {
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 18px;
+    color: #000;
+}
+
+.fc-event-title,
+.fc-event-time {
+    font-size: 16px;
+    color: #fff;
+}
+
+#calendar button {
+    background-color: var(--button-secondary-color);
+    border: 0;
+
+    transition: background-color linear 0.1s;
+}
+
+#calendar button:hover {
+    background-color: var(--button-primary-color);
+}
+
+
+.fc-day {
+    background-color: #fff;
+    color: var(--text-color-primary);
+}
+
+.fc-day-today {
+    background-color: #c5c5c5 !important;
+    border: 1px solid #ddd;
+}
+
+.fc-daygrid-day {
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.fc-event {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: background-color linear 0.1s;
+}
+
+.fc-event:hover {
+    background-color: var(--button-secondary-color);
+}
+
+/* Media requests */
+@media (max-width: 768px) {
+    .panel-calendar {
+        min-width: 400px;
+        padding: 20px;
+        gap: 30px;
+    }
+}
+
+/* @media (max-width: 580px) {
+    .overlay {
+        width: 100%;
+    }
+    .todo-details-popup {
+        width: 390px;
+    }
+    
+    .item-input {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    .invoice-primary-data {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .item-input-name {
+        width: auto !important;
+    }
+
+    .item-input-price,
+    .item-input-qty {
+        width: 50px !important;
+    }
+
+    .item-input-qty {
+        margin-right: 0 !important;
+    } */
+/* } */
+
+@media (max-width: 460px) {
+
+    .panel-calendar {
+        min-width: 300px;
+    }
+
+}

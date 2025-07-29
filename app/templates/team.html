@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
+{% endblock %}
+
+{% block title %}Team{% endblock %}
+
+{% block body %}
+<body>
+    <div class="panel-container">
+        {% include 'sidebar.html' %}
+        <div class="panel-admin">
+            <div class="panel-admin-first">
+                <h3>Team</h3>
+                <p>View team members here</p>
+            </div>
+        
+            <div class="panel-admin-info">
+                <div class="panel-tab-scrollable" id="user-tab" style="display: block;">
+                    <div class="user_cards" id="user-cards">
+                        <h2>Admins</h2>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Admin</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                                                   
+                        <h2>Managers</h2>
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                         
+                        <h2>Other</h2>
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                        
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="view-user">View</button>
+                        </div>                           
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popups">
+        <div class="overlay" id="profile-details-popup">
+            <div class="profile-details-popup">
+                <span class="login-form-title">Chris Profile</span>
+
+                <div class="profile-details">
+                    <div class="profile-details-data">
+                        <p><span style="font-weight: 500;">Name:</span> Chris</p>
+                        <p><span style="font-weight: 500;">Bio:</span> Content Strategist with 3+ years in viral content and YouTube growth. Leads Ascend Media, scaling 50+ creator channels & brands to six figures and driving 1B+ views.</p>
+                        <p><span style="font-weight: 500;">Role:</span> Admin</p>
+                        <a href="mailto:chris@email.com"><span style="font-weight: 500;">Email:</span> chris@email.com</a>
+                        <p><span style="font-weight: 500;">Joined:</span> 12.07.2018</p>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                </div>
+                <button type="submit" class="profile-details-btn" id="profile-details" data-popup-close="profile-details-popup">Close</button>
+            </div>            
+        </div>        
+    </div>
+</body>
+{% endblock %}

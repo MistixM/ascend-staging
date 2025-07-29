@@ -1,0 +1,422 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_panel.css') }}">
+{% endblock %}
+
+{% block title %}Admin panel{% endblock %}
+
+{% block body %}
+<body>
+    <div class="panel-container">
+        {% include 'sidebar.html' %}
+
+        <div class="panel-admin">
+            <div class="panel-admin-first">
+                <h3>Admin panel</h3>
+
+                <button class="add-user-btn" id="add-entity-btn">Add user</button>
+            </div>
+
+            <div class="panel-admin-info">
+                <div class="panel-admin-second">
+                    <div class="panel-admin-users">
+                        <button class="panel-admin-users-btn active">
+                            <img src="{{ url_for('static', filename='images/users-ico.svg') }}">
+                            Users
+                        </button>
+                    </div>
+                    <div class="panel-admin-roles">
+                        <button class="panel-admin-roles-btn">
+                            <img src="{{ url_for('static', filename='images/roles-ico.svg') }}">
+                            Roles
+                        </button>
+                    </div>
+                    <div class="panel-admin-invoices">
+                        <button class="panel-admin-invoices-btn">
+                            <img src="{{ url_for('static', filename='images/invoices-ico.svg') }}">
+                            Invoices
+                        </button>
+                    </div>
+                    <div class="panel-admin-stat">
+                        <button class="panel-admin-stat-btn">
+                            <img src="{{ url_for('static', filename='images/stat-ico.svg') }}">
+                            Statistics
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-tab-scrollable" id="user-tab" style="display: block;">
+                    <div class="user_cards" id="user-cards">
+                        <h2>Admins</h2>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Admin</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                                                   
+                        <h2>Managers</h2>
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                         
+                        <h2>Other</h2>
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                         
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                        
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                          
+                        <div class="user_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}">
+                                <h3>Chris</h3>
+                                <span>Managers</span>
+                            </div>
+                            <p>Content Strategist with 3+ years in viral content and YouTube growth...</p>
+                            <button id="edit-user">Edit user</button>
+                        </div>                           
+                    </div>                        
+                </div>                 
+                <div class="panel-tab-scrollable" id="role-tab" style="display: none;">
+                    <ul class="user_cards">
+                        <li class="user_item" id="role_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/key.svg') }}" style="padding: 30px; background-color: #E3B200; border-radius: 300px">
+                                <h3>Admin</h3>
+                            </div>
+                            <button id="delete-role-btn">Delete role</button>
+                        </li>                         
+                        <li class="user_item" id="role_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/globus.svg') }}" style="padding: 30px; background-color: #00E390; border-radius: 300px">
+                                <h3>Founder</h3>
+                            </div>
+                            <button id="delete-role-btn">Delete role</button>
+                        </li>                         
+                        <li class="user_item" id="role_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/pin.svg') }}" style="padding: 30px; background-color: #006AE3; border-radius: 300px">
+                                <h3>Manager</h3>
+                            </div>
+                            <button id="delete-role-btn">Delete role</button>
+                        </li>  
+                        <li class="user_item" id="role_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/globus.svg') }}" style="padding: 30px; background-color: #00E390; border-radius: 300px">
+                                <h3>Founder</h3>
+                            </div>
+                            <button id="delete-role-btn">Delete role</button>
+                        </li>   
+                        <li class="user_item" id="role_item">
+                            <div class="user_item_single">
+                                <img src="{{ url_for('static', filename='images/key.svg') }}" style="padding: 30px; background-color: #E3B200; border-radius: 300px">
+                                <h3>Admin</h3>
+                            </div>
+                            <button id="delete-role-btn">Delete role</button>
+                        </li>  
+                    </ul>
+                </div> 
+                <div class="panel-tab-scrollable" id="invoices-tab" style="display: none;">
+                    <ul class="user_cards">
+                        <li class="user_item" id="invoice-item">
+                            <div class="user_item_single">
+                                <div class="img-bg">
+                                    <img src="{{ url_for('static', filename='images/invoice.svg') }}" width="48">
+                                </div>
+                                <h3>Project X</h3>
+                            </div>
+                            <div class="status-btns">
+                                <div class="top_row">
+                                    <button class="paid" style="background-color: var(--button-success-color);">Paid</button>
+                                    <button class="decline" style="background-color: var(--button-close-color);">Decline</button>
+                                </div>
+                                <button class="details">View details</button>
+                            </div>
+                        </li>                            
+                        <li class="user_item" id="invoice-item">
+                            <div class="user_item_single">
+                                <div class="img-bg">
+                                    <img src="{{ url_for('static', filename='images/invoice.svg') }}" width="48">
+                                </div>
+                                <h3>Project X</h3>
+                            </div>
+                            <div class="status-btns">
+                                <div class="top_row">
+                                    <button class="paid" style="background-color: var(--button-success-color);">Paid</button>
+                                    <button class="decline" style="background-color: var(--button-close-color);">Decline</button>
+                                </div>
+                                <button class="details">View details</button>
+                            </div>
+                        </li>                            
+                        <li class="user_item" id="invoice-item">
+                            <div class="user_item_single">
+                                <div class="img-bg">
+                                    <img src="{{ url_for('static', filename='images/invoice.svg') }}" width="48">
+                                </div>
+                                <h3>Project X</h3>
+                            </div>
+                            <div class="status-btns">
+                                <div class="top_row">
+                                    <button class="paid" style="background-color: var(--button-success-color);">Paid</button>
+                                    <button class="decline" style="background-color: var(--button-close-color);">Decline</button>
+                                </div>
+                                <button class="details">View details</button>
+                            </div>
+                        </li>                            
+                        <li class="user_item" id="invoice-item">
+                            <div class="user_item_single">
+                                <div class="img-bg">
+                                    <img src="{{ url_for('static', filename='images/invoice.svg') }}" width="48">
+                                </div>
+                                <h3>Project X</h3>
+                            </div>
+                            <div class="status-btns">
+                                <div class="top_row">
+                                    <button class="paid" style="background-color: var(--button-success-color);">Paid</button>
+                                    <button class="decline" style="background-color: var(--button-close-color);">Decline</button>
+                                </div>
+                                <button class="details">View details</button>
+                            </div>
+                        </li>                            <li class="user_item" id="invoice-item">
+                            <div class="user_item_single">
+                                <div class="img-bg">
+                                    <img src="{{ url_for('static', filename='images/invoice.svg') }}" width="48">
+                                </div>
+                                <h3>Project X</h3>
+                            </div>
+                            <div class="status-btns">
+                                <div class="top_row">
+                                    <button class="paid" style="background-color: var(--button-success-color);">Paid</button>
+                                    <button class="decline" style="background-color: var(--button-close-color);">Decline</button>
+                                </div>
+                                <button class="details">View details</button>
+                            </div>
+                        </li>                     
+                    </ul>
+                </div>
+                <div class="panel-tab-scrollable" id="stat-tab" style="display: none;">
+                    <ul class="user_cards">
+                        <li class="user_item" id="stat-item">
+                            <div class="user_item_single">
+                                <h3>10</h3>
+                                <span>Team members</span>
+                            </div>
+                            <button class="stat-button" id="stat-team">Go to Team</button>
+                        </li>                        <li class="user_item" id="stat-item">
+                            <div class="user_item_single">
+                                <h3>15</h3>
+                                <span>Total invoices</span>
+                            </div>
+                            <button class="stat-button" id="stat-invoices">Go to Invoices</button>
+                        </li>                        <li class="user_item" id="stat-item">
+                            <div class="user_item_single">
+                                <h3>3</h3>
+                                <span>Total roles</span>
+                            </div>
+                            <button class="stat-button" id="stat-roles">Go to Roles</button>
+                        </li>                        <li class="user_item" id="stat-item">
+                            <div class="user_item_single">
+                                <h3>20</h3>
+                                <span>Total todos</span>
+                            </div>
+                            <a href="/todo" class="stat-button">Go to Todo</a>
+                        </li>                     
+                    </ul>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="popups">
+        <div class="overlay" id="user-add-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading">
+                    <span class="login-form-title">Add new user</span>
+                    <p class="login-form-desc">Please insert email, role and password for the new user.</p>
+                </div>
+                <form action="POST" class="user-add-form">
+                    <div class="email-block">
+                        <span>Email<span style="color: red">*</span></span>
+                        <input type="email" placeholder="foo@bar.com">
+                    </div>
+                    <div class="password-block">
+                        <span>Password<span style="color: red">*</span></span>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="role-block">
+                        <span>Role<span style="color: red">*</span></span>
+                        <select name="role" aria-placeholder="Choose role">
+                            <option value="" disabled selected hidden>Select a role</option>
+                            <option value="admin">Admin</option>
+                            <option value="founder">Founder</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="user-add-submit">Submit</button>
+                </form>
+            </div>            
+        </div>
+        <div class="overlay" id="user-edit-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading">
+                    <span class="login-form-title">Edit Chris</span>
+                    <p class="login-form-desc">Edit user’s name, email, password or role</p>
+                </div>
+                <form action="POST" class="user-add-form">
+                    <div class="name-block">
+                        <span>Name</span>
+                        <input type="text" value="Chris" placeholder="Enter name">
+                    </div>
+                    <div class="email-block">
+                        <span>Email</span>
+                        <input type="email" value="chris@email.com" placeholder="foo@bar.com">
+                    </div>
+                    <div class="password-block">
+                        <span>Password</span>
+                        <input type="text" value="superstrongpassword123" placeholder="••••••••">
+                    </div>
+                    <div class="role-block">
+                        <span>Role</span>
+                        <select name="role" aria-placeholder="Choose role" >
+                            <option value="" disabled selected hidden>Admin</option>
+                            <option value="founder">Founder</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="user-add-submit">Edit</button>
+                </form>
+            </div>            
+        </div>        
+        <div class="overlay" id="role-add-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading">
+                    <span class="login-form-title">Add new role</span>
+                    <p class="login-form-desc">Please insert role name</p>
+                </div>
+                <form action="POST" class="user-add-form">
+                    <div class="role-block">
+                        <span>Role name<span style="color: red">*</span></span>
+                        <input type="text" placeholder="e.g Manager">
+                    </div>
+                    <button type="submit" class="user-add-submit">Submit</button>
+                </form>
+            </div>            
+        </div>        
+        <div class="overlay" id="role-removal-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading" id="role-popup-heading">
+                    <span class="login-form-title">Are you sure?</span>
+                    <p class="login-form-desc">This action will permanently delete this data!</p>
+                </div>
+                <form action="POST" class="user-add-form">
+                    <button type="submit" class="user-add-submit" id="role-removal-submit">Yes, delete</button>
+                </form>
+            </div>            
+        </div>        
+        <div class="overlay" id="invoice-details-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading">
+                    <span class="login-form-title">View Project X invoice</span>
+                    <p class="login-form-desc">View invoice details, statuses and notes here.</p>
+                </div>
+                <div class="invoice-data">
+                    <p><span style="font-weight: 500;">Title:</span> Project X</p>
+                    <p><span style="font-weight: 500;">Date:</span> 12.12.1999</p>
+                    <p><span style="font-weight: 500;">From:</span> Ascend Media Co 255 S Orange Avenue Suite 104 #2397 Orlando, FL, 23801</p>
+                    <p><span style="font-weight: 500;">Items:</span><br>
+                        - Video edit work<br>
+                        - Video marketing
+                    </p>
+                    <p><span style="font-weight: 500;">Status:</span> Declined</p><br>
+                    <p><span style="font-weight: 500;">Notes:</span> Additional information required</p><br>
+                    <span>Total: $999</span>
+                </div>
+                <form action="POST" class="user-add-form" id="invoice-form">
+                    <div class="top_row" style="width: 100%;">
+                        <button type="submit" class="user-add-submit" id="invoice-paid">Paid</button>
+                        <button type="submit" class="user-add-submit" id="invoice-decline">Decline</button>
+                    </div>
+                    <div class="bottom_row">
+                        <button type="submit" class="user-add-submit" id="invoice-details" data-popup-close="invoice-details-popup">Close</button>
+                        <button type="submit" class="user-add-submit" id="invoice-set-note">Set note</button>
+                    </div>
+                </form>
+            </div>            
+        </div>        
+        <div class="overlay" id="invoice-set-note-popup">
+            <div class="user-add-popup">
+                <div class="user-popup-heading">
+                    <span class="login-form-title">Set invoice note</span>
+                    <p class="login-form-desc">Insert your invoice note here.</p>
+                </div>
+                <form action="POST" class="user-add-form" id="invoice-form">
+                    <div class="note-block">
+                        <span>Note<span style="color: red">*</span></span>
+                        <input type="text" placeholder="e.g Additional information required">
+                    </div>
+                    <div class="bottom_row" style="width: auto;">
+                        <button type="submit" class="user-add-submit" id="note-back">Back</button>
+                        <button type="submit" class="user-add-submit" id="note-set-note">Set note</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+</body>
+{% endblock %}
