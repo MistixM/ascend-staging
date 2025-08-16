@@ -266,15 +266,21 @@
 
 .title-block,
 .description-block,
-.links-block {
+.links-block,
+.date-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
+.date-block input {
+    cursor: pointer;
+}
+
 .title-block span,
 .description-block span,
-.links-block span {
+.links-block span,
+.date-block span {
     font-family: 'K2D';
     font-weight: 500;
     color: var(--text-color-primary);
@@ -283,7 +289,8 @@
 
 .title-block input,
 .description-block input,
-.links-block input {
+.links-block input,
+.date-block input {
     width: 387px;
     padding: 15px;
 
@@ -300,7 +307,8 @@
 
 .title-block input ::placeholder,
 .description-block input ::placeholder,
-.links-block input ::placeholder {
+.links-block input ::placeholder,
+.date-block input ::placeholder {
     color: #A3A3A3;
     font-family: 'Inter';
     font-size: 13px;
@@ -333,6 +341,10 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+}
+
+#todo-tab ul {
+    height: 310px;
 }
 
 .todo-inputs {
@@ -458,7 +470,8 @@
     }
     .title-block input, 
     .description-block input, 
-    .links-block input {
+    .links-block input,
+    .date-block input {
         max-width: 300px;
     }
 }

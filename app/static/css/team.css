@@ -183,7 +183,78 @@
     visibility: visible;
 }
 
-.profile-details-popup {
+
+#calendar {
+    height: 550px;
+}
+
+#calendar h2,
+#calendar button {
+    font-family: 'K2D';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-color-primary);
+}
+
+#calendar a {
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 18px;
+    color: #000;
+}
+
+.fc-event-title,
+.fc-event-time {
+    font-size: 16px;
+    color: #fff;
+}
+
+#calendar button {
+    background-color: var(--button-secondary-color);
+    border: 0;
+
+    transition: background-color linear 0.1s;
+}
+
+#calendar button:hover {
+    background-color: var(--button-primary-color);
+}
+
+
+.fc-day {
+    background-color: #fff;
+    color: var(--text-color-primary);
+}
+
+.fc-day-today {
+    background-color: #c5c5c5 !important;
+    border: 1px solid #ddd;
+}
+
+.fc-daygrid-day {
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.fc-event {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: background-color linear 0.1s;
+}
+
+.fc-event:hover {
+    background-color: var(--button-secondary-color);
+}
+
+.profile-details-popup,
+.profile-calendar-popup {
     position: fixed;
 
     top: 50%; left: 50%;
@@ -202,6 +273,9 @@
     flex-direction: column;
     gap: 30px;
 }
+.profile-calendar-popup {
+    width: 650px;
+}
 
 .profile-details {
     display: flex;
@@ -210,7 +284,8 @@
     align-items: center;
 }
 
-.login-form-title {
+.login-form-title,
+.calendar-user-name {
     color: var(--text-color-primary);
     
     text-align: left;

@@ -4,10 +4,13 @@
     
     <div class="sidebar-wrapper">
         <div class="sidebar-buttons main-links">
-            <a class="admin-button  {% if active_page == 'admin' %}active{% endif %}" href="/admin">
-                <img src="{{ url_for('static', filename='images/admin-ico.svg') }}">
-                <span>Admin panel</span>
-            </a>
+            {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                <a class="admin-button  {% if active_page == 'admin' %}active{% endif %}" href="/admin">
+                    <img src="{{ url_for('static', filename='images/admin-ico.svg') }}">
+                    <span>Admin panel</span>
+                </a>
+            {% endif %}
+
             <a class="team-button {% if active_page == 'team' %}active{% endif %}" href="/team">
                 <img src="{{ url_for('static', filename='images/team-ico.svg') }}">
                 <span>Team</span>
@@ -27,10 +30,35 @@
         </div>
     
         <div class="sidebar-buttons bottom-links">
-            <a class="profile-button {% if active_page == 'profile' %}active{% endif %}" id="profile-btn" data-name="Welcome, Chris!" href="/profile">
-                <img src="{{ url_for('static', filename='images/profile-ico.svg') }}">
-                <span>Profile</span>
-            </a>
+            <div class="profile-notify">
+                <a class="profile-button {% if active_page == 'profile' %}active{% endif %}" id="profile-btn" data-name="Welcome, {{ current_user.name }}!" href="/profile">
+                    <img src="{{ url_for('static', filename='images/profile-ico.svg') }}" width="15">
+                </a>
+                <a class="notification-bell" id="notification-btn">
+                    {% if notifications %}
+                        <img src="{{ url_for('static', filename='images/bell_unread.svg') }}">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/bell.svg') }}">
+                    {% endif %}
+                </a>
+                <div class="notification-popup-content" id="notification-popup" style="display: none;">
+                    <p><strong>Notifications</strong></p>
+                    <ul>
+                        {% if notifications %}
+                            {% for notification in notifications %}
+                                <li>
+                                    <p>{{ notification.title }}</p>
+                                    <a href="{{ notification.redirect }}" data-id="{{ notification.id }}">Open</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>
+                                <p>No new notifications</p>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
             <a class="logout-button" style="cursor: pointer;">
                 <img src="{{ url_for('static', filename='images/logout-ico.svg') }}">
                 <span>Log out</span>

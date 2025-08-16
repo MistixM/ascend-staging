@@ -163,9 +163,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 25px;
     width: 230px;
+    height: fit-content;
     flex-shrink: 0;
     padding: 20px 32px;
     background-color: var(--third-bg-color);
@@ -173,6 +174,9 @@
 }
 
 .user_item_single {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
@@ -234,6 +238,10 @@
     background-color: var(--button-close-hover-color);
 }
 
+#role_item button:disabled {
+    background-color: #861c1c;
+}
+
 
 .status-btns {
     display: flex;
@@ -247,6 +255,8 @@
 
 .paid,
 .decline {
+    /* display: flex;
+    flex-direction: column; */
     width: 75px !important;
 }
 
@@ -272,9 +282,41 @@
     width: 104px;
     height: 104px;
 
-    background-color: #E3B200;
     border-radius: 50%;
 
+}
+
+.invoice-details-btn {
+    align-self: center;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--button-primary-color);
+    color:var(--text-color-primary);
+
+    transition: background-color linear 0.1s;
+}
+
+.invoice-details-btn:hover {
+    background-color: var(--button-hover-color);
+}
+
+.invoice-details-title {
+    font-family: 'K2D';
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--text-color-primary);
+}
+
+.invoice-details-desc {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 200;
+    color: var(--text-color-primary);
+}
+
+#invoices-tab ul {
+    height: 355px;
 }
 
 #invoice-item {
@@ -318,6 +360,8 @@
 .user-add-popup {
     position: fixed;
 
+    width: 550px;
+    
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     background: white;
@@ -360,7 +404,7 @@
     gap: 10px;
 }
 
-
+.user-name-title,
 .login-form-title {
     color: var(--text-color-primary);
     text-align: left;
@@ -411,7 +455,7 @@
 .name-block input,
 .role-block input,
 .note-block input {
-    width: 387px;
+    width: 520px;
     padding: 15px;
 
     background-color: rgb(217,217,217, 0.2);
@@ -429,7 +473,7 @@
 .pass-block input ::placeholder,
 .name-block input ::placeholder,
 .role-block input ::placeholder,
-.note-block input ::placeholder{
+.note-block input ::placeholder {
     color: #A3A3A3;
     font-family: 'Inter';
     font-size: 13px;
@@ -498,6 +542,9 @@
     align-items: center;
 }
 
+#invoice-set-note-popup div {
+    width: auto !important;
+}
 .invoice-data {
     max-width: 374px;
     display: flex;
@@ -524,7 +571,8 @@
 #invoice-paid,
 #invoice-decline,
 #invoice-details,
-#invoice-set-note {
+#invoice-set-note,
+#download-pdf-btn {
     margin-top: 0;
     width: 100%;
 }
@@ -538,14 +586,33 @@
     background-color: var(--button-close-color);
 }
 
-#invoice-set-note {
+#invoice-set-note,
+#download-pdf-btn {
+    color: #fff;
     background-color: var(--button-primary-color);
+    transition: background-color linear 0.1s;
+}
+
+#invoice-set-note:hover,
+#download-pdf-btn:hover {
+    background-color: var(--button-hover-color);
 }
 
 .bottom_row {
     display: flex;
     gap: 10px;
     width: 100%;
+}
+
+
+.error-message {
+    font-size: 15px;
+    color: #FFF;
+    font-family: "K2D";
+    text-align: center;
+    background-color: #d82e2e;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 

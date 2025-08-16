@@ -16,14 +16,15 @@
         <img src="/static/images/c_3.png" class="parallax c_3">
         <img src="/static/images/c_4.png" class="parallax c_4">
  
-        <a class="login-title" href="#">Ascend Media</a>
+        <a class="login-title" href="/login">Ascend Media</a>
         <div class="login-form">
             <div class="login-form-heading">
                 <span class="login-form-title">Sign in to your account</span>
                 <p class="login-form-desc">Enter your email and password to access your dashboard</p>
             </div>
             <div class="login-form-container">
-                <form action="POST" class="login-form-submit">
+                <form method="POST" action="/login" class="login-form-submit">
+                    <input type="hidden" name="next" value="{{ next }}">
                     <div class="email-block">
                         <span>Email</span>
                         <input type="email" name="email" placeholder="foo@bar.com" required>
@@ -34,10 +35,13 @@
                     </div>
                     <button type="submit" class="login-form-btn">Sign in</button>
                 </form>
+                {% if error_message %}
+                    <p class="error-message">{{ error_message }}</p>
+                {% endif %}
             </div>
         </div>
     </div>
 
-    <script src="/static/main.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 {% endblock %}

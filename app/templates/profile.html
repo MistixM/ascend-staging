@@ -18,31 +18,52 @@
         <div class="panel-second">
             <div class="profile-tab">
                 <div class="profile-inputs">
-                    <form action="POST" class="profile-form">
+                    <form method="POST" action="/edit-profile" class="profile-form">
                         <div class="name-block">
                             <span>Name</span>
-                            <input type="text" value="Chris" placeholder="Enter name">
+                            <input type="text" name="name" value="{{ current_user.name }}" placeholder="Enter name">
                         </div>
                         <div class="desc-block">
                             <span>Bio</span>
-                            <textarea placeholder="Enter bio" style="resize:vertical;max-height:160px;min-height:50px;border:0;">Content Strategist with 3+ years in viral content and YouTube growth. Leads Ascend Media, scaling 50+ creator channels & brands to six figures and driving 1B+ views.</textarea>
+                            <textarea placeholder="Enter bio" name="bio" style="resize:vertical;max-height:160px;min-height:50px;border:0;">{{ current_user.bio }}</textarea>
                         </div>
                         <div class="email-block">
                             <span>Email</span>
-                            <input type="email" value="chris@email.com" placeholder="Enter email">
-                        </div>       
+                            <input type="email" name="email" value="{{ current_user.email }}" placeholder="Enter email">
+                        </div>  
+                        {% with messages = get_flashed_messages(with_categories=True) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="profile-flash {{ category }}">
+                                        {{ message }}
+                                    </div>
+                                    <script>
+                                        setTimeout(() => {
+                                            const flash = document.querySelector('.profile-flash');
+                                            if (flash) {
+                                                flash.style.display = 'none';
+                                            }
+                                        }, 4000);
+                                    </script>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <button type="submit" id="edit-btn" style="display: none;">Save changes</button>   
                     </form>
                 </div>
                 <div class="profile-other">
                     <span class="photo-title">Profile photo</span>
-                    <img src="{{ url_for('static', filename='images/christopher-rizzo-ceo 1.png') }}" width="140">
-                    <div class="photo-buttons">
+                    <form method="POST" action="{{ url_for('upload_avatar') }}" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;align-items: center;">
+                        <img src="{{ url_for('static', filename=current_user.profile_img) }}" width="140" height="140" style="border-radius: 50%; object-fit:cover">
+                        <input type="file" name="avatar" id="upload-photo-tg" accept="image/*" style="display: none;">
                         <button id="upload-photo">Upload photo</button>
-                        <button id="delete-photo">Delete</button>
-                    </div>
+                    </form>
+                    <form method="POST" action="{{ url_for('delete_avatar') }}">
+                        <button id="delete-photo" {% if 'default' in current_user.profile_img %}style='display: none'{% endif %}>Delete</button>
+                    </form>
                     <div class="profile-other-date">
-                        <span><b>Joined:</b> 12.07.2018</span>
-                        <span><b>Role:</b> Admin</span>
+                        <span>Joined:{{ current_user.joined }}</span>
+                        <span><b>Role:</b> {{ current_user.role.capitalize() }}</span>
                     </div>
                 </div>
             </div>
@@ -51,15 +72,15 @@
                 <div class="insigths-list">
                     <div class="insight-item">
                         <span class="item-title">Total invoices</span>
-                        <span class="item-amount">10</span>
+                        <span class="item-amount">{{ current_user.invoices_count }}</span>
                     </div>                    
                     <div class="insight-item">
                         <span class="item-title">Total todos</span>
-                        <span class="item-amount">3</span>
+                        <span class="item-amount">{{ current_user.todo_count }}</span>
                     </div>                    
                     <div class="insight-item">
                         <span class="item-title">Total revenue</span>
-                        <span class="item-amount">$5000</span>
+                        <span class="item-amount">${{ current_user.revenue }}</span>
                     </div>
                 </div>
             </div>

@@ -116,7 +116,8 @@
     gap: 5px;
 }
 
-#upload-photo {
+#upload-photo,
+#edit-btn {
     width: 125px;
     height: 40px;
     text-align: center;
@@ -126,7 +127,8 @@
     transition: background-color linear 0.1s;
 }
 
-#upload-photo:hover {
+#upload-photo:hover,
+#edit-btn:hover {
     background-color: var(--button-hover-color);
 }
 
@@ -143,6 +145,23 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.profile-flash {
+    font-size: 15px;
+    color: #FFF;
+    font-family: "K2D";
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.profile-flash.warning {
+    background-color: #d82e2e;
+}
+
+.profile-flash.info {
+    background-color: #2e89d8;
 }
 
 .profile-other-date span {
