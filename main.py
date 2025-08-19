@@ -79,7 +79,15 @@ def init_table():
                                 root=root))
         
         db.session.commit()
-        
+
+@app.route('/')
+def index():
+    if current_user.is_authenticated:
+        if current_user.role in ['admin', 'founder']:
+            return redirect(url_for('admin'))
+        return redirect(url_for('team'))   
+    return redirect(url_for('login'))
+
 
 @app.route('/notification/delete', methods=['POST'])
 @login_required
@@ -150,7 +158,7 @@ def admin():
 
     roles = Roles.query.all()
     invoices = Invoices.query.all()
-    invoice_items = Invoices.query.filter_by(user_id=current_user.id).all()
+    invoice_items = Invoices.query.all()
 
     admins = User.query.filter(User.role.in_(['admin', 'founder'])).all()
     managers = User.query.filter_by(role='manager').all()
@@ -216,11 +224,6 @@ def update_inovoice_status():
         return jsonify({'status': 'error', 'message': 'Missing parameters'}), 400
 
     invoice = Invoices.query.get(invoice_id)
-
-    # TODO: need to calculate current user revenue here
-    # for inv in invoice:
-    #     for item in inv.items:
-    #         print(item)
 
     if not invoice:
         return jsonify({'status': 'error', 'message': 'Invoice not found'}), 404
@@ -787,4 +790,4 @@ def delete_avatar():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=5050, debug=True)
